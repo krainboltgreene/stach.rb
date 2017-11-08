@@ -1,23 +1,92 @@
-# blank-gem
+# stach
 
-  - [![Build](http://img.shields.io/travis-ci/krainboltgreene/blank-gem.svg?style=flat-square)](https://travis-ci.org/krainboltgreene/blank-gem)
-  - [![Downloads](http://img.shields.io/gem/dtv/blank-gem.svg?style=flat-square)](https://rubygems.org/gems/blank-gem)
-  - [![Version](http://img.shields.io/gem/v/blank-gem.svg?style=flat-square)](https://rubygems.org/gems/blank-gem)
+  - [![Build](http://img.shields.io/travis-ci/krainboltgreene/stach.svg?style=flat-square)](https://travis-ci.org/krainboltgreene/stach)
+  - [![Downloads](http://img.shields.io/gem/dtv/stach.svg?style=flat-square)](https://rubygems.org/gems/stach)
+  - [![Version](http://img.shields.io/gem/v/stach.svg?style=flat-square)](https://rubygems.org/gems/stach)
 
 
-TODO: Write a gem description
+A micro-mustache rendering engine.
 
 
 ## Using
 
-TODO: Write usage instructions here
+First require the library if you need to:
+
+``` ruby
+require "stach"
+```
+
+Now have a interpolation string ready:
+
+``` ruby
+content = "Hello {{name}}, my name is computer. I see that you are {{age}} years old!"
+```
+
+And now some data:
+
+``` ruby
+data = {name: "Kurtis Rainbolt-Greene", age: 30}
+```
+
+Lets setup our render:
+
+``` ruby
+renderer = Stach.new(content, data)
+```
+
+That alone is not enough, we need to realize it:
+
+``` ruby
+renderer.to_s
+```
+
+That would return the below string:
+
+``` ruby
+"Hello Kurtis Rainbolt-Greene, my name is computer. I see you are 30 years old!"
+```
+
+Since it's all about calling `to_s` you can also do this:
+
+
+``` ruby
+puts "Johny the robot says, '#{renderer}'"
+```
+
+or this:
+
+``` ruby
+puts "Johny the robot says, '#{Stach.new(content, data)}'"
+```
+
+Which would output:
+
+```
+Johny the robot says, 'Hello Kurtis Rainbolt-Greene, my name is computer. I see you are 30 years old!'
+```
+
+Here's how this all looks together:
+
+``` ruby
+require "stach"
+
+content = "Hello {{name}}, my name is computer. I see that you are {{age}} years old!"
+
+data = {name: "Kurtis Rainbolt-Greene", age: 30}
+
+renderer = Stach.new(content, data)
+
+puts "Johny the robot says, '#{renderer}'"
+
+puts "Johny the robot says, '#{Stach.new(content, data)}'"
+```
 
 
 ## Installing
 
 Add this line to your application's Gemfile:
 
-    gem "blank-gem", "1.0.0"
+    gem "stach", "1.0.0"
 
 And then execute:
 
@@ -25,7 +94,7 @@ And then execute:
 
 Or install it yourself with:
 
-    $ gem install blank-gem
+    $ gem install stach
 
 
 ## Contributing

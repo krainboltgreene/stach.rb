@@ -1,6 +1,6 @@
 require "pry"
 require "rspec"
-require "blank-gem"
+require "stach"
 
 RSpec.configure do |let|
   # Exit the spec after the first failure

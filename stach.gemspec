@@ -1,14 +1,14 @@
 $:.push File.expand_path(File.join("..", "lib"), __FILE__)
-require "blank-gem"
+require "stach"
 
 Gem::Specification.new do |spec|
-  spec.name = "blank-gem"
-  spec.version = Blankgem::VERSION
+  spec.name = "stach"
+  spec.version = Stach::VERSION
   spec.authors = ["Kurtis Rainbolt-Greene"]
   spec.email = ["kurtis@rainbolt-greene.online"]
-  spec.summary = %q{x: Write a gem summary}
+  spec.summary = %q{A micro-mustache rendering engine.}
   spec.description = spec.summary
-  spec.homepage = "http://krainboltgreene.github.io/blank-gem"
+  spec.homepage = "http://krainboltgreene.github.io/stach"
   spec.license = "ISC"
 
   spec.files = Dir[File.join("lib", "**", "*"), "LICENSE", "README.md", "Rakefile"]
